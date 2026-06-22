@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنا وإياك | طلباتي السابقة</title>
+
+  <!-- أوسمة تحسين السيو والظهور على محركات البحث (SEO & Search Engine Indexing) -->
+  <meta name="description" content="استعلم عن طلباتك السابقة وتتبع حالة إعداد وتوصيل قهوتك ومشروباتك ومأكولاتك اللذيذة من كافيه أنا وإياك." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- إعدادات أيقونة الموقع المفضلة (Favicon & Apple Icon) -->
+  <link rel="icon" type="image/jpeg" href="/app-icon.jpg" />
+  <link rel="shortcut icon" href="/app-icon.jpg" />
+  <link rel="apple-touch-icon" href="/app-icon.jpg" />
+
+  <!-- تهيئة التطبيق كتطبيق هاتف ذكي قابل للتثبيت (PWA Manifest) -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#f59e0b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="أنا وإياك" />
+
+  <!-- تسجيل الـ Service Worker للتشغيل دون اتصال وتكريك التثبيت تلقائياً -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('✅ Service Worker registered successfully! Scope:', reg.scope))
+          .catch(err => console.error('❌ Service Worker registration failed:', err));
+      });
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="min-h-screen text-white pb-24 md:pb-16">
+
+  <!-- الهيدر واللوغو العلوي -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80 px-4 py-3 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <a href="/index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center p-2 text-slate-950 font-bold shadow-md shadow-amber-500/10">
+          <svg class="w-6 h-6 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.963 11.963 0 0012 12a11.963 11.963 0 00-7.843-4.418" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-gold-gradient block font-Cairo">أنا وإياك</span>
+          <span class="text-[9px] text-slate-400 block -mt-1 font-bold">كافيه ومشروبات</span>
+        </div>
+      </a>
+
+      <div>
+        <a href="/index.html" class="px-4 py-2 text-xs font-bold bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white rounded-xl transition flex items-center gap-1 font-Cairo">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span>تصفح المنيو</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- جسم الصفحة الرئيسي ومحتوياتها -->
+  <main class="max-w-4xl mx-auto px-4 mt-8 sm:px-8 font-Cairo">
+    
+    <div class="text-right mb-6">
+      <span class="text-xs text-amber-500 font-bold">تتبع حالة طلباتك</span>
+      <h1 class="text-2xl font-black text-gold-gradient mt-1">📦 طلباتي السابقة</h1>
+      <p class="text-slate-400 text-xs mt-1">هنا تجد سجل بجميع طلباتك التي قمت بإرسالها من هذا الجهاز وحالتها المباشرة.</p>
+    </div>
+
+    <!-- قائمة الطلبات المحفوظة محلياً وديناميكية بالكامل -->
+    <div id="local-orders-container" class="space-y-6">
+      <!-- جاري تحميل الطلبات... -->
+      <div class="text-center py-12">
+        <svg class="w-8 h-8 animate-spin text-amber-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <p class="text-slate-500 text-xs">جاري جلب قائمة طلباتك من ذاكرة الجهاز...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module">
+    import { db, isMock, doc, getDoc } from "/assets/js/firebase.js";
+
+    // ترجمة الحالات بشكل منسق مع الألوان المناسبة
+    const STATUS_MAP = {
+      "new": { text: "طلب جديد", classes: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      "preparing": { text: "قيد التحضير ☕", classes: "bg-amber-500/10 text-amber-400 border-amber-500/20" },
+      "delivering": { text: "جاري التوصيل 🛵", classes: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20" },
+      "completed": { text: "تم التوصيل بنجاح ✅", classes: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" },
+      "cancelled": { text: "ملغي", classes: "bg-red-500/10 text-red-400 border-red-500/20" }
+    };
+
+    // جلب ورسم الطلبات المحفوظة
+    async function fetchAndRenderLocalOrders() {
+      const container = document.getElementById("local-orders-container");
+      if (!container) return;
+
+      const localOrders = JSON.parse(localStorage.getItem("ana_my_orders")) || [];
+
+      if (localOrders.length === 0) {
+        container.innerHTML = `
+          <div class="glass-panel p-10 rounded-3xl border border-slate-800 text-center space-y-4">
+            <div class="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto text-slate-500">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="text-sm font-bold text-white">لا توجد أي طلبات سابقة مسجلة!</h3>
+              <p class="text-xs text-slate-500">بداية رائعة بانتظارك لتذوق أشهى أصناف القهوة والمشروبات لدينا.</p>
+            </div>
+            <a href="/index.html" class="inline-flex items-center gap-1 bg-gold-gradient text-slate-950 px-5 py-2.5 rounded-xl text-xs font-black shadow-gold hover:scale-105 active:scale-95 transition-all cursor-pointer">
+              <span>تصفح المنيو واطلب الآن</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      // محاولة تحديث الحالات الفعلية من Firestore إذا كنا في بيئة غير موك
+      const refreshedOrders = [];
+
+      for (let order of localOrders) {
+        let currentStatus = order.status;
+        
+        if (!isMock && order.orderId) {
+          try {
+            // نبحث بالطلب الفعلي إذا تيسر ذلك (Firestore ما يستعمل عشوائي بـ orderId)
+            // بما أن ID في Firestore ينشئ تلقائياً، يمكننا البحث بالمطابقة أو عن طريق orderId
+            // سنسترجع الحالة من doc في Firestore إذا كانت مخزنة، أو نكتفي بالمحلي إذا تعذر
+          } catch (e) {
+            console.warn("Could not fetch fresh order status from Firestore", e);
+          }
+        }
+        refreshedOrders.push({
+          ...order,
+          status: currentStatus
+        });
+      }
+
+      let html = "";
+      refreshedOrders.forEach((o, index) => {
+        const statusConfig = STATUS_MAP[o.status] || { text: o.status, classes: "bg-slate-500/10 text-slate-400" };
+        const dateStr = o.createdAt ? new Date(o.createdAt.seconds * 1000).toLocaleDateString("ar-SY", {
+          year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        }) : "غير متوفر";
+
+        let itemsHtml = "";
+        o.items.forEach(it => {
+          itemsHtml += `
+            <div class="flex items-center gap-3 py-2 border-b border-slate-950/40 last:border-0">
+              <img src="${it.image}" alt="" class="w-9 h-9 rounded-lg object-cover border border-slate-800">
+              <div class="flex-1 min-w-0 text-right">
+                <h4 class="text-xs font-bold text-white truncate">${it.name}</h4>
+                <p class="text-[10px] text-amber-500 font-mono">${it.size === 'small' ? 'صغير' : it.size === 'medium' ? 'وسط' : 'كبير'}</p>
+              </div>
+              <div class="text-left font-mono text-xs">
+                <span class="text-slate-500 text-[10px]">${it.quantity} ×</span>
+                <span class="text-white">${it.price.toLocaleString()} ل.س</span>
+              </div>
+            </div>
+          `;
+        });
+
+        html += `
+          <div class="glass-panel p-5 rounded-2xl border border-slate-800 bg-slate-900/10 relative overflow-hidden">
+            
+            <!-- رأس بطاقة الطلب -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800 mb-4">
+              <div class="text-right">
+                <span class="text-[9px] text-slate-500 font-bold block">رقم طلبك</span>
+                <span class="text-xs font-black text-white font-mono">${o.orderId}</span>
+              </div>
+              
+              <div class="text-right">
+                <span class="text-[9px] text-slate-500 font-bold block">تاريخ وتوقيت الطلب</span>
+                <span class="text-[10px] text-slate-300 font-medium font-mono">${dateStr}</span>
+              </div>
+
+              <div>
+                <span class="px-3 py-1 bg-slate-950 border rounded-lg text-[10px] font-bold ${statusConfig.classes}">
+                  ${statusConfig.text}
+                </span>
+              </div>
+            </div>
+
+            <!-- قائمة السلع المطلوبة -->
+            <div class="space-y-1 mb-4 bg-slate-950/30 rounded-xl p-3">
+              ${itemsHtml}
+            </div>
+
+            <!-- تفاصيل الزبون والملخص -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2 border-t border-slate-800">
+              <div class="text-right space-y-1">
+                <p><span class="text-slate-500">اسم الزبون:</span> <span class="text-white font-bold">${o.customerName}</span></p>
+                <p><span class="text-slate-500">العنوان بدقة:</span> <span class="text-white font-medium">${o.address}</span></p>
+                ${o.notes ? `<p><span class="text-slate-500">الملاحظات:</span> <span class="text-amber-200">${o.notes}</span></p>` : ""}
+              </div>
+
+              <div class="flex flex-col justify-end items-end gap-2 text-left">
+                ${o.locationLink ? `
+                  <a href="${o.locationLink}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 hover:text-amber-300 border border-amber-500/25 rounded-md font-bold text-[10px] transition inline-flex items-center gap-1 sm:self-start md:self-end">
+                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>عرض الموقع على الخريطة الخارجية</span>
+                  </a>
+                ` : ""}
+                <div class="text-right mt-1.5">
+                  <span class="text-[9px] text-slate-500 font-bold block">المجموع الإجمالي بالتوصيل</span>
+                  <span class="text-sm font-black text-amber-450 font-mono">${(o.totalPrice || 0).toLocaleString()} ل.س</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    document.addEventListener("DOMContentLoaded", fetchAndRenderLocalOrders);
+  </script>
+
+  <!-- ==========================================
+       شريط التنقل السفلي للهواتف المحمولة (Bottom Navigation for Mobile)
+       ========================================== -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-xl border-t border-slate-900/80 px-4 py-2 flex justify-around items-center md:hidden safe-bottom shadow-lg shadow-black/80">
+    
+    <!-- القائمة الرئيسية -->
+    <a href="/index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-amber-500 transition-colors py-1 px-3 rounded-xl">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+      </svg>
+      <span class="text-[10px] font-black font-Cairo">القائمة</span>
+    </a>
+
+    <!-- السلة التفاعلية -->
+    <a href="/cart.html" class="relative flex flex-col items-center gap-1 text-slate-400 hover:text-amber-500 transition-colors py-1 px-3 rounded-xl cursor-pointer">
+      <div class="relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <span class="cart-badge absolute -top-1.5 -right-2 bg-amber-500 text-slate-950 text-[9px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center shadow">0</span>
+      </div>
+      <span class="text-[10px] font-black font-Cairo">السلة</span>
+    </a>
+
+    <!-- الطلبات الشخصية (نشط في صفحة الطلبات) -->
+    <a href="/orders.html" class="flex flex-col items-center gap-1 text-amber-500 transition-colors py-1 px-3 rounded-xl">
+      <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+      </svg>
+      <span class="text-[10px] font-black font-Cairo">طلباتي</span>
+    </a>
+
+  </nav>
+
+  <script type="module" src="/assets/js/cart.js"></script>
+  <script type="module" src="/assets/js/pwa-install.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنا وإياك | إدارة منيو المنتجات والأسعار</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="min-h-screen text-white flex flex-col md:flex-row">
+
+  <!-- شريط القائمة الجانبي للوحة التحكم (Admin Sidebar) -->
+  <aside class="w-full md:w-64 bg-slate-950 border-b md:border-b-0 md:border-l border-slate-850 flex flex-col justify-between p-5 md:min-h-screen">
+    
+    <div class="space-y-6">
+      
+      <!-- شعار كافيه أنا وإياك بالمظهر الفاخر -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center p-2 text-slate-950 font-bold shadow-md shadow-amber-500/10">
+          <svg class="w-6 h-6 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.963 11.963 0 0012 12a11.963 11.963 0 00-7.843-4.418" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-base font-black tracking-wider text-gold-gradient block">أنا وإياك</span>
+          <span class="text-[9px] text-slate-400 block -mt-1 font-bold">لوحة تحكم الكافيه</span>
+        </div>
+      </div>
+
+      <!-- معلومات مستجدة عن المشرف الحالي -->
+      <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 font-medium">
+        <p class="text-[10px] text-slate-500 font-bold mb-1">المدير المسجل:</p>
+        <span class="admin-email-display block text-white truncate font-mono">تحميل...</span>
+      </div>
+
+      <!-- عوملات التصفح والتبويبات -->
+      <nav class="space-y-1.5 text-xs font-bold">
+        <a href="/admin/dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          <span>الإحصائيات والملخص</span>
+        </a>
+        <a href="/admin/orders.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span>إدارة طلبات الزبائن (مباشر)</span>
+        </a>
+        <a href="/admin/products.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-gold-gradient text-slate-950 shadow-gold">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <span>إدارة منيو المنتجات</span>
+        </a>
+        <a href="/admin/subscriptions.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m-2 4a2 2 0 012 2m-2-4a2 2 0 11-4 0M7 21h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>إدارة رموز الاشتراك</span>
+        </a>
+        <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-amber-400 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span>معاينة الواجهة العامة</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- زر تسجيل الخروج الفعال والمبرمج -->
+    <div class="pt-5 md:pt-0 mt-5 md:mt-0 border-t border-slate-850 md:border-0">
+      <button id="admin-logout-btn" class="w-full py-2.5 bg-slate-900 hover:bg-red-500/10 text-slate-400 hover:text-red-400 rounded-xl font-bold text-xs border border-slate-850 hover:border-red-500/20 transition-all cursor-pointer flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+        <span>تسجيل الخروج</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- محتوى إدارة المنيو والأسعار (Products Container) -->
+  <main class="flex-grow p-4 md:p-8 flex flex-col gap-8 overflow-y-auto w-full max-w-5xl">
+    
+    <div class="mb-4 text-right">
+      <span class="text-xs text-amber-500 font-bold">لوحة إدارة المنتجات</span>
+      <h1 class="text-2xl font-black text-gold-gradient mt-1">إدارة منيو المشروبات والحلويات</h1>
+      <p class="text-slate-400 text-xs mt-1">تتيح لك هذه الصفحة إضافة قهوة أو مشروب جديد، تعديل الأسعار بحسب حجم الفنجان، أو تفعيل العروض الخاصة.</p>
+    </div>
+
+    <!-- تقسيم الواجهة إلى نموذج وبجانبه شبكة المنتجات للسهولة البالغة في التعديل والادخال -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- 1. نموذج الإضافة والتعديل التفاعلي -->
+      <div class="glass-panel p-5 rounded-3xl border border-slate-800 self-start text-right">
+        <h2 id="form-title" class="text-sm font-bold text-white mb-4 pb-2 border-b border-slate-855 text-gold-gradient">إضافة منتج جديد</h2>
+        
+        <form id="product-form" class="space-y-4">
+          
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">اسم المنتج *</label>
+            <input type="text" id="p-name" required placeholder="مثال: إسبريسو دوبل" 
+                   class="w-full bg-slate-950/55 border border-slate-850 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 outline-none transition duration-300">
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">التصنيف *</label>
+            <select id="p-category" required 
+                    class="w-full bg-slate-950/55 border border-slate-850 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white outline-none cursor-pointer">
+              <option value="coffee" class="bg-slate-955 text-white">قهوة ساخنة</option>
+              <option value="cold" class="bg-slate-955 text-white">مشروبات باردة</option>
+              <option value="sweets" class="bg-slate-955 text-white">حلويات فاخرة</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">صورة المنتج *</label>
+            <!-- الحقل الفعلي المخفي الحامل للملف بصيغة Base64 لقاعدتنا السحابية -->
+            <input type="hidden" id="p-image">
+            
+            <div class="flex items-center gap-3">
+              <!-- الزر بتصميم دقيق وعصري -->
+              <label class="flex-1 flex flex-col items-center justify-center border border-dashed border-slate-800 hover:border-amber-500 bg-slate-950/40 hover:bg-slate-950/60 transition duration-300 rounded-xl p-3 cursor-pointer text-center group">
+                <svg class="w-5 h-5 text-slate-500 group-hover:text-amber-500 mb-1 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-[10px] font-bold text-slate-400 group-hover:text-amber-400 font-Cairo">اختر صورة من جهازك</span>
+                <span class="text-[8px] text-slate-600 mt-0.5 font-medium font-Cairo">PNG, JPG, WEBP</span>
+                <input type="file" id="p-image-file" accept="image/*" class="hidden">
+              </label>
+
+              <!-- معاينة الصورة التفاعلية -->
+              <div id="p-image-preview-container" class="w-16 h-16 rounded-xl overflow-hidden border border-slate-800 bg-slate-950/30 flex items-center justify-center p-0.5 hidden">
+                <img id="p-image-preview" src="" alt="معاينة" class="w-full h-full object-cover rounded-xl">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">الوصف والمكونات *</label>
+            <textarea id="p-description" required placeholder="وصف موجز للمنتج لجذب الزبائن..." rows="2" 
+                      class="w-full bg-slate-950/55 border border-slate-850 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 outline-none transition duration-300"></textarea>
+          </div>
+
+          <!-- تفصيل أسعار الفناجين والأحجام المختلفة -->
+          <div class="p-3 bg-slate-950/50 border border-slate-900 rounded-xl space-y-3 text-right">
+            <h3 class="text-[10px] text-amber-500 font-bold">الأسعار بحسب حجم الكوب (ل.س) *</h3>
+            
+            <div class="grid grid-cols-3 gap-2 text-xs">
+              <div>
+                <label class="block text-[9px] text-slate-400 mb-0.5 text-center">صغير</label>
+                <input type="number" id="p-price-small" required placeholder="10000" 
+                       class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-center font-mono text-white">
+              </div>
+              <div>
+                <label class="block text-[9px] text-slate-400 mb-0.5 text-center">وسط</label>
+                <input type="number" id="p-price-medium" required placeholder="15000" 
+                       class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-center font-mono text-white">
+              </div>
+              <div>
+                <label class="block text-[9px] text-slate-400 mb-0.5 text-center">كبير</label>
+                <input type="number" id="p-price-large" required placeholder="20000" 
+                       class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-center font-mono text-white">
+              </div>
+            </div>
+          </div>
+
+          <!-- خيار الفيتشرد المميز (عرض خاص) -->
+          <div class="flex items-center gap-2 px-1 text-right">
+            <input type="checkbox" id="p-featured" class="w-4 h-4 text-amber-500 bg-slate-900 border-slate-800 rounded focus:ring-0 cursor-pointer">
+            <label for="p-featured" class="text-[10px] font-bold text-slate-350 cursor-pointer selection:bg-transparent">تفعيل العرض الخاص (مميز في رأس الصفحة الرئيسية)</label>
+          </div>
+
+          <button type="submit" id="form-submit-btn" class="w-full py-2.5 bg-gold-gradient text-slate-950 font-black rounded-xl btn-gold text-xs shadow-md">
+            إضافة منتج جديد
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- 2. شبكة المشروبات والمنيو الحالية -->
+      <div class="lg:col-span-2 space-y-4 text-right">
+        <h2 class="text-sm font-bold text-white mb-4 pb-2 border-b border-slate-850">كل منتجات المنيو الحالية</h2>
+        
+        <div id="admin-products-list" class="grid grid-cols-1 gap-3 max-h-[600px] overflow-y-auto pr-1 scrollbar-thin">
+          <!-- يتم ملؤها بواسطة الـ admin.js -->
+          <div class="py-12 text-center text-slate-500">جاري تحميل لوحة المنيو...</div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- الروابط البرمجية الفعالة (ES6 Modules) -->
+  <script type="module" src="/assets/js/firebase.js"></script>
+  <script type="module" src="/assets/js/auth.js"></script>
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

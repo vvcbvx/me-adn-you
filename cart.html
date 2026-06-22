@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنا وإياك - كافيه ومشروبات | السلة التفصيلية</title>
+
+  <!-- أوسمة تحسين السيو والظهور على محركات البحث (SEO & Search Engine Indexing) -->
+  <meta name="description" content="سلة المشتريات والطلبات كافيه ومشروبات أنا وإياك - أكمل طلبك الفاخر من مشروبات وحلويات الآن وسنوصلها إليك فوراً." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- إعدادات أيقونة الموقع المفضلة (Favicon & Apple Icon) -->
+  <link rel="icon" type="image/jpeg" href="/app-icon.jpg" />
+  <link rel="shortcut icon" href="/app-icon.jpg" />
+  <link rel="apple-touch-icon" href="/app-icon.jpg" />
+
+  <!-- تهيئة التطبيق كتطبيق هاتف ذكي قابل للتثبيت (PWA Manifest) -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#f59e0b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="أنا وإياك" />
+
+  <!-- تسجيل الـ Service Worker للتشغيل دون اتصال وتكريك التثبيت تلقائياً -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('✅ Service Worker registered successfully! Scope:', reg.scope))
+          .catch(err => console.error('❌ Service Worker registration failed:', err));
+      });
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="min-h-screen text-white pb-24 md:pb-16">
+
+  <!-- الهيدر واللوغو العلوي -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80 px-4 py-3 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <a href="/index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center p-2 text-slate-950 font-bold shadow-md shadow-amber-500/10">
+          <svg class="w-6 h-6 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.963 11.963 0 0012 12a11.963 11.963 0 00-7.843-4.418" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-gold-gradient block">أنا وإياك</span>
+          <span class="text-[9px] text-slate-400 block -mt-1 font-bold">كافيه ومشروبات</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-2">
+        <a href="/orders.html" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-amber-500/50 text-slate-300 hover:text-white transition-all flex items-center gap-1.5 font-Cairo">
+          <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+          </svg>
+          <span>طلباتي السابقة</span>
+        </a>
+        <a href="/index.html" class="px-3.5 py-2 text-xs font-bold bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white rounded-xl transition flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span>مواصلة التسوق</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- جسم الصفحة الرئيسي ومحتوياتها -->
+  <main class="max-w-4xl mx-auto px-4 mt-8 sm:px-8">
+    <h1 class="text-2xl font-black mb-1 text-gold-gradient">سلتك التفصيلية</h1>
+    <p class="text-slate-400 text-xs mb-6">قم بمراجعة طلباتك، المشروبات والحلويات المختارة بعناية، قبل الانتقال لصفحة التوصيل والدفع.</p>
+
+    <!-- شبكة الهيكل بين قائمة المنتجات وملخص الحساب -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- قائمة المنتجات المحفوظة بالسلة -->
+      <div id="cart-page-container" class="md:col-span-2 space-y-4">
+        <!-- يتم التحميل والتحديث التلقائي عبر cart.js -->
+        <div class="py-12 text-slate-400 text-center">جاري استرجاع طلبات سلّتك الحالية...</div>
+      </div>
+
+      <!-- ملخص الفاتورة وإجراء الدفع -->
+      <div id="cart-summary-card" class="glass-panel p-5 rounded-2xl border border-slate-800/80 bg-slate-900/30 self-start hidden">
+        <h3 class="text-base font-bold text-white mb-4 pb-2 border-b border-slate-800">فاتورة طلبك</h3>
+        
+        <div class="space-y-3 mb-6 text-xs text-slate-400 font-semibold">
+          <div class="flex justify-between">
+            <span>الحساب الفرعي:</span>
+            <span id="page-subtotal" class="font-mono text-white">0 ل.س</span>
+          </div>
+          <div class="flex justify-between">
+            <span>أجور التوصيل:</span>
+            <span id="page-delivery" class="font-mono text-white">3,000 ل.س</span>
+          </div>
+          <div class="flex justify-between text-base font-black text-amber-400 border-t border-slate-800 pt-2.5 mt-2">
+            <span>إجمالي الفاتورة:</span>
+            <span id="page-total" class="font-mono text-amber-500">0 ل.س</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <a href="/checkout.html" class="block w-full text-center py-3.5 bg-gold-gradient text-slate-950 rounded-xl btn-gold font-bold text-xs uppercase tracking-wider shadow-lg">
+            الانتقال لصفحة طلب التوصيل
+          </a>
+          <button onclick="window.cart.clearCart()" class="block w-full py-2.5 text-center text-xs text-red-400 font-bold rounded-xl hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition duration-300">
+            تفريغ كامل السلة
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================
+       شريط التنقل السفلي للهواتف المحمولة (Bottom Navigation for Mobile)
+       ========================================== -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-xl border-t border-slate-900/80 px-4 py-2 flex justify-around items-center md:hidden safe-bottom shadow-lg shadow-black/80">
+    
+    <!-- القائمة الرئيسية -->
+    <a href="/index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-amber-500 transition-colors py-1 px-3 rounded-xl">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+      </svg>
+      <span class="text-[10px] font-black font-Cairo">القائمة</span>
+    </a>
+
+    <!-- السلة التفاعلية (نشطة في صفحة السلة) -->
+    <a href="/cart.html" class="relative flex flex-col items-center gap-1 text-amber-500 transition-colors py-1 px-3 rounded-xl cursor-pointer">
+      <div class="relative">
+        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <span class="cart-badge absolute -top-1.5 -right-2 bg-amber-500 text-slate-950 text-[9px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center shadow">0</span>
+      </div>
+      <span class="text-[10px] font-black font-Cairo">السلة</span>
+    </a>
+
+    <!-- الطلبات الشخصية -->
+    <a href="/orders.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-amber-500 transition-colors py-1 px-3 rounded-xl">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+      </svg>
+      <span class="text-[10px] font-black font-Cairo">طلباتي</span>
+    </a>
+
+  </nav>
+
+  <script type="module" src="/assets/js/firebase.js"></script>
+  <script type="module" src="/assets/js/cart.js"></script>
+  <script type="module" src="/assets/js/pwa-install.js"></script>
+</body>
+</html>

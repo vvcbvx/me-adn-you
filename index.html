@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنا وإياك - كافيه ومشروبات | القائمة الرئيسية</title>
+  
+  <!-- أوسمة تحسين السيو والظهور على محركات البحث (SEO & Search Engine Indexing) -->
+  <meta name="description" content="كافيه ومشروبات أنا وإياك - الوجهة الأرقى لطلب ألذ أنواع القهوة الساخنة، المشروبات الباردة المنعشة، والحلويات الفاخرة مباشرة إلى منزلك مع دعم الدفع الإلكتروني عبر شام كاش." />
+  <meta name="keywords" content="كافيه, أنا وإياك, قهوة ساخنة, مشروبات باردة, حلويات فاخرة, توصيل قهوة دمشق, شام كاش, طلب أونلاين, كافيه أنا وإياك, الدفع الإلكتروني" />
+  <meta name="author" content="أنا وإياك" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- معايير مشاركة الروابط والـ Open Graph لشبكات التواصل الاجتماعي والواتساب -->
+  <meta property="og:title" content="أنا وإياك - كافيه ومشروبات فاخرة" />
+  <meta property="og:description" content="اطلب مشروبك المفضل والحلويات الفاخرة وسنوصلها إليك فوراً بحب وعناية. توصيل سريع وتدعم شام كاش." />
+  <meta property="og:image" content="/app-icon.jpg" />
+  <meta property="og:url" content="https://ais-dev-2gb3apywhxy2vjxmbvuzn5-776910788089.europe-west2.run.app" />
+  <meta property="og:type" content="website" />
+  
+  <!-- بطاقات تويتر (X Card) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="أنا وإياك - كافيه ومشروبات" />
+  <meta name="twitter:description" content="الوجهة الأرقى لطلب القهوة والمشروبات الباردة والحلويات الفاخرة." />
+  <meta name="twitter:image" content="/app-icon.jpg" />
+
+  <!-- إعدادات أيقونة الموقع المفضلة (Favicon & Apple Icon) -->
+  <link rel="icon" type="image/jpeg" href="/app-icon.jpg" />
+  <link rel="shortcut icon" href="/app-icon.jpg" />
+  <link rel="apple-touch-icon" href="/app-icon.jpg" />
+
+  <!-- تهيئة التطبيق كتطبيق هاتف ذكي قابل للتثبيت (PWA Manifest) -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#f59e0b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="أنا وإياك" />
+
+  <!-- تسجيل الـ Service Worker للتشغيل دون اتصال وتكريك التثبيت تلقائياً -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('✅ Service Worker registered successfully! Scope:', reg.scope))
+          .catch(err => console.error('❌ Service Worker registration failed:', err));
+      });
+    }
+  </script>
+
+  <!-- Tailwind CSS & Icons -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    /* تخصيص إضافي سريع للشاشات لضمان التناسق بنسبة 100% مع الصورة */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.4) 100%), 
+                  url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1200');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white pb-24 md:pb-16">
+
+  <!-- الهيدر واللوغو العلوي -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80 px-4 py-3 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- اللوغو والهوية الفاخرة المأخوذة من مرجع الصورة -->
+      <a href="/index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center p-2 text-slate-950 font-bold shadow-md shadow-amber-500/10 group-hover:scale-105 transition-transform">
+          <!-- شكل كوب قهوة وقلب مدمج -->
+          <svg class="w-6 h-6 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.963 11.963 0 0012 12a11.963 11.963 0 00-7.843-4.418" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-gold-gradient block">أنا وإياك</span>
+          <span class="text-[9px] text-slate-400 block -mt-1 font-bold">كافيه ومشروبات</span>
+        </div>
+      </a>
+
+      <!-- لوحة التحكم السريعة -->
+      <div class="flex items-center gap-2">
+        <!-- زر طلباتي السابقة للزبون -->
+        <a href="/orders.html" class="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-amber-500/50 text-slate-300 hover:text-white transition-all flex items-center gap-1.5 font-Cairo">
+          <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+          </svg>
+          <span class="hidden xs:inline">طلباتي السابقة</span>
+          <span class="inline xs:hidden">طلباتي</span>
+        </a>
+
+        <!-- زر السلة الممتلئ مع الشارة التفاعلية -->
+        <button class="open-cart-btn relative w-10 h-10 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-800/80 flex items-center justify-center transition-all cursor-pointer">
+          <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span class="cart-badge absolute -top-1 -right-1 bg-amber-500 text-slate-950 text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-lg animate-bounce hidden">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- جسم الصفحة الرئيسي ومحتوياتها -->
+  <main class="max-w-7xl mx-auto px-4 mt-6 sm:px-8">
+
+    <!-- البانر الترويجي الفاخر - بطل العرض (Hero Banner) -->
+    <section class="hero-banner rounded-3xl overflow-hidden p-6 sm:p-12 mb-8 border border-slate-800/60 relative flex flex-col justify-center min-h-[220px] sm:min-h-[280px]">
+      <div class="absolute inset-0 bg-slate-950/40"></div>
+      <div class="relative z-10 max-w-lg">
+        <span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full border border-amber-500/20 font-bold uppercase tracking-widest inline-block mb-3">رائحة القهوة تأسر القلوب</span>
+        <h1 class="text-2xl sm:text-4xl font-black mb-3 text-white leading-tight">لذة القهوة وسحر المشروبات تكتمل معك...</h1>
+        <p class="text-sm text-slate-300 mb-6 leading-relaxed hidden sm:block">انقُل مزاجك إلى البعد الآخر مع كافيه "أنا وإياك". اختر مشروبك المفضل والحلويات الفاخرة وسنوصلها إليك فوراً بحب وعناية.</p>
+        <button class="open-cart-btn px-6 py-2.5 bg-gold-gradient text-slate-950 font-bold rounded-xl btn-gold flex items-center gap-2 text-sm">
+          <span>اطلب الآن</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- شريط الفرز بحسب الفئات -->
+    <section class="mb-8 font-Cairo">
+      <div class="flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <button data-category="all" class="menu-tab bg-gold-gradient text-slate-950 px-6 py-2 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer">الكل</button>
+        <button data-category="coffee" class="menu-tab text-slate-400 hover:text-white px-4 py-2 text-xs font-bold transition-all shrink-0 cursor-pointer">قهوة ساخنة</button>
+        <button data-category="cold" class="menu-tab text-slate-400 hover:text-white px-4 py-2 text-xs font-bold transition-all shrink-0 cursor-pointer">مشروبات باردة</button>
+        <button data-category="sweets" class="menu-tab text-slate-400 hover:text-white px-4 py-2 text-xs font-bold transition-all shrink-0 cursor-pointer">حلويات فاخرة</button>
+      </div>
+    </section>
+
+    <!-- شبكة عرض المنتجات (Products Grid) -->
+    <section>
+      <h2 class="text-xl font-bold mb-6 text-gold-gradient">قائمة المشروبات والحلويات المتاحة</h2>
+      <div id="products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- يتم ملء بطاقات المنتجات تلقائياً بواسطة app.js -->
+        <div class="col-span-full py-20 text-center text-slate-500">جاري تحميل المنتجات والقهوة اللذيذة...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       النافذة الجانبية المنزلقة للسلة (Shopping Cart Sidebar Drawer)
+       ========================================== -->
+  <div id="cart-overlay" class="fixed inset-0 bg-slate-950/80 z-40 hidden transition-opacity duration-300"></div>
+  <aside id="side-cart" class="fixed top-0 bottom-0 left-0 w-full sm:w-96 bg-slate-950 border-r border-slate-850 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between overflow-hidden">
+    
+    <!-- هيدر السلة -->
+    <div class="p-5 border-b border-slate-850 flex items-center justify-between bg-slate-900/30">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+        <h3 class="text-base font-bold text-white">سلة التسوق الخاصة بك</h3>
+      </div>
+      <button id="close-cart-btn" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800 transition">✕</button>
+    </div>
+
+    <!-- قائمة محتويات السلة التفاعلية -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 scrollbar-thin">
+      <!-- يتم الملء تلقائياً بـ cart.js -->
+    </div>
+
+    <!-- تفاصيل المجموع والتقديم -->
+    <div class="p-5 border-t border-slate-850 bg-slate-900/40">
+      <div class="space-y-2 mb-4 text-xs font-semibold">
+        <div class="flex justify-between text-slate-400">
+          <span>المجموع الفرعي:</span>
+          <span id="cart-subtotal" class="font-mono text-white">0 ل.س</span>
+        </div>
+        <div class="flex justify-between text-slate-400">
+          <span>أجور التوصيل:</span>
+          <span id="cart-delivery" class="font-mono text-white">3,000 ل.س</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-amber-400 border-t border-slate-800 pt-2 mt-2">
+          <span>الإجمالي الكلي:</span>
+          <span id="cart-total" class="font-mono text-amber-500">0 ل.س</span>
+        </div>
+      </div>
+
+      <a href="/checkout.html" class="block text-center py-3.5 bg-gold-gradient text-slate-950 rounded-xl btn-gold font-bold text-sm">
+        إتمام الطلب الآن
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ==========================================
+       نافذة تعديل الحجم والكمية (Product Configurator Dialog Modal)
+       ========================================== -->
+  <div id="modal-overlay" class="fixed inset-0 bg-slate-950/80 z-40 hidden transition-opacity"></div>
+  <div id="product-detail-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg bg-slate-950 border border-slate-800 rounded-3xl z-50 overflow-hidden hidden shadow-2xl">
+    
+    <!-- صورة المنتج الكبيرة والجميلة بالمودال -->
+    <div class="h-48 sm:h-56 relative">
+      <img id="modal-prod-image" src="" alt="" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+      <button id="close-modal-btn" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-slate-950/60 hover:bg-slate-900 border border-slate-700/50 text-white flex items-center justify-center font-bold">×</button>
+    </div>
+
+    <!-- تفاصيل المشروب ومواصفاته -->
+    <div class="p-5 sm:p-6 space-y-4">
+      <div>
+        <h3 id="modal-prod-name" class="text-xl font-bold text-white mb-2">اسم المشروب هنا</h3>
+        <p id="modal-prod-desc" class="text-xs text-slate-400 leading-relaxed">وصف المشروب والمكونات اللذيذة هنا بالتفصيل.</p>
+      </div>
+
+      <!-- اختيار الحجم -->
+      <div>
+        <h4 class="text-xs font-bold text-amber-400 mb-2">اختر الحجم المفضل</h4>
+        <div id="modal-sizes-container" class="grid grid-cols-3 gap-2">
+          <!-- خيارات الحجم تدرج من الـ app.js -->
+        </div>
+      </div>
+
+      <!-- التحكم بالكمية والإضافة -->
+      <div class="flex items-center justify-between border-t border-slate-850 pt-4">
+        
+        <div>
+          <h4 class="text-[10px] text-slate-500 font-bold mb-1">الكمية المطلوبة</h4>
+          <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 rounded-xl px-3 py-1.5">
+            <button id="modal-qty-plus" class="text-slate-400 hover:text-amber-500 font-bold">+</button>
+            <span id="modal-qty" class="text-white font-mono font-bold">1</span>
+            <button id="modal-qty-minus" class="text-slate-400 hover:text-amber-500 font-bold">-</button>
+          </div>
+        </div>
+
+        <div class="flex-1 max-w-xs mr-4 self-end">
+          <button id="modal-add-to-cart-btn" class="w-full py-3 bg-gold-gradient text-slate-950 font-bold rounded-xl btn-gold text-xs shadow-lg">
+            أضف إلى السلة
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- زر إتمام الطلب الفوري العائم عند وجود أي منتج بالسلة -->
+  <div id="sticky-checkout-bar" class="fixed bottom-20 left-6 right-6 md:bottom-6 md:left-auto md:right-6 md:max-w-md md:w-full z-40 hidden transition-all duration-500 transform translate-y-20 opacity-0 font-Cairo">
+    <div class="glass-panel bg-slate-900/95 border border-amber-500/35 p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4">
+      <div class="text-right">
+        <p class="text-[10px] text-slate-400 font-bold">لديك منتجات في السلة</p>
+        <p id="sticky-total" class="text-sm font-black text-amber-400 font-mono">0 ل.س</p>
+      </div>
+      <a href="/checkout.html" class="flex items-center gap-2 bg-gold-gradient text-slate-950 px-5 py-2.5 rounded-xl text-xs font-black transition-all hover:scale-105 active:scale-95 shadow-gold cursor-pointer">
+        <span>إتمام الطلب الآن</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       شريط التنقل السفلي للهواتف المحمولة (Bottom Navigation for Mobile)
+       ========================================== -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-xl border-t border-slate-900/80 px-4 py-2 flex justify-around items-center md:hidden safe-bottom shadow-lg shadow-black/80">
+    
+    <!-- القائمة الرئيسية -->
+    <a href="/index.html" class="flex flex-col items-center gap-1 text-amber-500 transition-colors py-1 px-3 rounded-xl">
+      <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+      </svg>
+      <span class="text-[10px] font-black font-Cairo">القائمة</span>
+    </a>
+
+    <!-- السلة التفاعلية -->
+    <a href="/cart.html" class="open-cart-btn relative flex flex-col items-center gap-1 text-slate-400 hover:text-amber-500 transition-colors py-1 px-3 rounded-xl cursor-pointer">
+      <div class="relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <span class="cart-badge absolute -top-1.5 -right-2 bg-amber-500 text-slate-950 text-[9px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center shadow">0</span>
+      </div>
+      <span class="text-[10px] font-black font-Cairo">السلة</span>
+    </a>
+
+    <!-- الطلبات الشخصية -->
+    <a href="/orders.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-amber-500 transition-colors py-1 px-3 rounded-xl">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+      </svg>
+      <span class="text-[10px] font-black font-Cairo">طلباتي</span>
+    </a>
+
+  </nav>
+
+  <!-- الروابط البرمجية الفعالة (ES6 Modules) -->
+  <script type="module" src="/assets/js/firebase.js"></script>
+  <script type="module" src="/assets/js/cart.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+  <script type="module" src="/assets/js/pwa-install.js"></script>
+</body>
+</html>

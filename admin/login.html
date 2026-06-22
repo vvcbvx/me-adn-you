@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنا وإياك - كافيه ومشروبات | الدخول للوحة التحكم</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="min-h-screen text-white flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 relative shadow-2xl">
+    
+    <!-- شكل شعار لوغو هادئ وجميل -->
+    <div class="text-center mb-8">
+      <div class="w-14 h-14 bg-gold-gradient rounded-full mx-auto flex items-center justify-center mb-3 p-3 shadow-lg shadow-amber-500/10">
+        <svg class="w-8 h-8 text-slate-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        </svg>
+      </div>
+      <h1 class="text-xl font-bold text-gold-gradient">بوابة المدراء والمشرفين</h1>
+      <p class="text-[11px] text-slate-400 mt-1">كافيه ومشروبات "أنا وإياك" - لوحة تحكم الطلبات والمنيو</p>
+    </div>
+
+    <!-- نموذج تسجيل الدخول للمدير -->
+    <form id="login-form" class="space-y-4">
+      
+      <div>
+        <label class="block text-xs font-bold text-slate-400 mb-1.5">البريد الإلكتروني للادارة *</label>
+        <input type="email" id="login-email" required placeholder="example@cafe.com" 
+               class="w-full bg-slate-950/70 border border-slate-800 focus:border-amber-500 rounded-xl px-4 py-3 text-xs text-left text-white placeholder-slate-650 outline-none transition duration-300">
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-slate-400 mb-1.5">كلمة المرور السرية *</label>
+        <input type="password" id="login-pass" required placeholder="••••••••" 
+               class="w-full bg-slate-950/70 border border-slate-800 focus:border-amber-500 rounded-xl px-4 py-3 text-xs text-left text-white placeholder-slate-650 outline-none transition duration-300">
+      </div>
+
+      <!-- إشعار الخطأ التفاعلي -->
+      <div id="error-alert" class="bg-red-500/10 border border-red-500/20 text-red-400 text-[11px] font-bold p-3 rounded-lg hidden"></div>
+
+      <button type="submit" class="w-full py-3.5 bg-gold-gradient text-slate-950 font-black rounded-xl btn-gold text-xs shadow-lg uppercase tracking-wider">
+        تسجيل الدخول للوحة التحكم
+      </button>
+
+    </form>
+
+    <!-- تلميح الحساب الافتراضي للسهولة التامة في الاختبار والتعديل -->
+    <div class="mt-8 pt-4 border-t border-slate-850 text-center text-xs">
+      <p class="text-slate-500">حساب تجريبي للاختبار الفوري السريع:</p>
+      <div class="bg-slate-950/50 rounded-xl border border-slate-905 p-3.5 mt-2 space-y-1 font-mono text-xs select-all text-amber-500">
+        <p><span class="text-slate-400">الايميل:</span> admin@cafe.com</p>
+        <p><span class="text-slate-400">الباسورد:</span> admin123</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- السكريبتات التنفيذية -->
+  <script type="module" src="/assets/js/firebase.js"></script>
+  <script type="module" src="/assets/js/auth.js"></script>
+  <script type="module">
+    import { loginAdmin } from "/assets/js/auth.js";
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById("login-email").value;
+      const pass = document.getElementById("login-pass").value;
+      const errorDiv = document.getElementById("error-alert");
+
+      errorDiv.classList.add("hidden");
+      errorDiv.textContent = "";
+
+      try {
+        const result = await loginAdmin(email, pass);
+        if (result.success) {
+          window.location.href = "/admin/dashboard.html";
+        }
+      } catch (err) {
+        errorDiv.textContent = err.message;
+        errorDiv.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

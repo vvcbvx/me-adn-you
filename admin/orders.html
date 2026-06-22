@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنا وإياك | إدارة طلبات الزبائن بالوقت الحقيقي</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="min-h-screen text-white flex flex-col md:flex-row">
+
+  <!-- شريط القائمة الجانبي للوحة التحكم (Admin Sidebar) -->
+  <aside class="w-full md:w-64 bg-slate-950 border-b md:border-b-0 md:border-l border-slate-850 flex flex-col justify-between p-5 md:min-h-screen">
+    
+    <div class="space-y-6">
+      
+      <!-- شعار كافيه أنا وإياك بالمظهر الفاخر -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center p-2 text-slate-950 font-bold shadow-md shadow-amber-500/10">
+          <svg class="w-6 h-6 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.963 11.963 0 0012 12a11.963 11.963 0 00-7.843-4.418" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-base font-black tracking-wider text-gold-gradient block">أنا وإياك</span>
+          <span class="text-[9px] text-slate-400 block -mt-1 font-bold">لوحة تحكم الكافيه</span>
+        </div>
+      </div>
+
+      <!-- معلومات مستجدة عن المشرف الحالي -->
+      <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 font-medium">
+        <p class="text-[10px] text-slate-500 font-bold mb-1">المدير المسجل:</p>
+        <span class="admin-email-display block text-white truncate font-mono">تحميل...</span>
+      </div>
+
+      <!-- عوملات التصفح والتبويبات -->
+      <nav class="space-y-1.5 text-xs font-bold">
+        <a href="/admin/dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          <span>الإحصائيات والملخص</span>
+        </a>
+        <a href="/admin/orders.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-gold-gradient text-slate-950 shadow-gold">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span>إدارة طلبات الزبائن (مباشر)</span>
+        </a>
+        <a href="/admin/products.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <span>إدارة منيو المنتجات</span>
+        </a>
+        <a href="/admin/subscriptions.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m-2 4a2 2 0 012 2m-2-4a2 2 0 11-4 0M7 21h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>إدارة رموز الاشتراك</span>
+        </a>
+        <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-amber-400 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span>معاينة الواجهة العامة</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- زر تسجيل الخروج الفعال والمبرمج -->
+    <div class="pt-5 md:pt-0 mt-5 md:mt-0 border-t border-slate-850 md:border-0">
+      <button id="admin-logout-btn" class="w-full py-2.5 bg-slate-900 hover:bg-red-500/10 text-slate-400 hover:text-red-400 rounded-xl font-bold text-xs border border-slate-850 hover:border-red-500/20 transition-all cursor-pointer flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+        <span>تسجيل الخروج</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- محتوى الطلبات لوحة التحكم بالوقت الحقيقي (Live Orders) -->
+  <main class="flex-grow p-4 md:p-8 flex flex-col gap-8 overflow-y-auto w-full max-w-5xl">
+    
+    <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-right">
+      <div>
+        <span class="text-xs text-amber-500 font-bold">لوحة المراقبة الفورية للطلبات</span>
+        <h1 class="text-2xl font-black text-gold-gradient mt-1">مراقبة وتحديث الطلبات المباشرة</h1>
+        <p class="text-slate-400 text-xs mt-1">تتدفق طلبات الزبائن المسجلة في هذه الصفحة تلقائياً بالوقت المباشر دون الحاجة لتحديث متصفحك.</p>
+      </div>
+
+      <!-- مؤشر مظهر البينغ لمعاينة الوقت الفعلي ومتابعة سلامة الأنظمة -->
+      <div class="self-start sm:self-center flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-bold">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
+        <span>متصل ومثبت على السحابة بنجاح</span>
+      </div>
+    </div>
+
+    <!-- تصفية فرعية بحسب الحالة للسهولة التامة في المتابعة -->
+    <div class="flex flex-wrap gap-2 justify-end" id="orders-filter-container">
+      <button onclick="window.adminPanel.setFilterStatus('all')" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-350 hover:text-white rounded-xl text-xs font-bold transition duration-300">
+        الكل
+      </button>
+      <button onclick="window.adminPanel.setFilterStatus('new')" class="px-4 py-2 bg-slate-900 hover:bg-indigo-500/10 border border-slate-800 hover:border-indigo-500/20 text-indigo-400 rounded-xl text-xs font-bold transition duration-300">
+        الجديدة
+      </button>
+      <button onclick="window.adminPanel.setFilterStatus('preparing')" class="px-4 py-2 bg-slate-900 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/20 text-amber-500 rounded-xl text-xs font-bold transition duration-300">
+        قيد التحضير
+      </button>
+      <button onclick="window.adminPanel.setFilterStatus('delivered')" class="px-4 py-2 bg-slate-900 hover:bg-green-500/10 border border-slate-800 hover:border-green-500/20 text-green-400 rounded-xl text-xs font-bold transition duration-300">
+        النجاح والتسليم
+      </button>
+      <button onclick="window.adminPanel.setFilterStatus('canceled')" class="px-4 py-2 bg-slate-900 hover:bg-rose-500/10 border border-slate-800 hover:border-rose-500/20 text-rose-450 rounded-xl text-xs font-bold transition duration-300">
+        الملغاة
+      </button>
+    </div>
+
+    <!-- شبكة استلام طلبات الزبائن الحية والنشطة -->
+    <section>
+      <div id="admin-orders-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- تدرج تفاصيل الطلبات الحية برمجياً عبر الـ admin.js -->
+        <div class="col-span-full py-20 text-center text-slate-500">جاري استدعاء تدفق الطلبات المباشرة لـ "أنا وإياك"...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- الروابط البرمجية الفعالة (ES6 Modules) -->
+  <script type="module" src="/assets/js/firebase.js"></script>
+  <script type="module" src="/assets/js/auth.js"></script>
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

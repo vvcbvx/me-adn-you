@@ -1,0 +1,26 @@
+{
+  "name": "أنا وإياك - كافيه ومشروبات",
+  "short_name": "أنا وإياك",
+  "description": "كافيه ومشروبات أنا وإياك لتقديم ألذ أنواع القهوة والمشروبات والحلويات الفاخرة مباشرة إلى باب منزلك.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["food", "shopping"],
+  "icons": [
+    {
+      "src": "/app-icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ]
+}

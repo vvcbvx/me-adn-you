@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم بالبوابة | ملخص المؤشرات والإحصائيات</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="min-h-screen text-white flex flex-col md:flex-row animate-fadeIn">
+
+  <!-- شريط القائمة الجانبي للوحة التحكم (Admin Sidebar) -->
+  <aside class="w-full md:w-64 bg-slate-950 border-b md:border-b-0 md:border-l border-slate-850 flex flex-col justify-between p-5 md:min-h-screen">
+    
+    <div class="space-y-6">
+      
+      <!-- شعار كافيه أنا وإياك بالمظهر الفاخر -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center p-2 text-slate-950 font-bold shadow-md shadow-amber-500/10">
+          <svg class="w-6 h-6 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.963 11.963 0 0012 12a11.963 11.963 0 00-7.843-4.418" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-base font-black tracking-wider text-gold-gradient block">أنا وإياك</span>
+          <span class="text-[9px] text-slate-400 block -mt-1 font-bold">لوحة تحكم الكافيه</span>
+        </div>
+      </div>
+
+      <!-- معلومات مستجدة عن المشرف الحالي -->
+      <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 font-medium">
+        <p class="text-[10px] text-slate-500 font-bold mb-1">المدير المسجل:</p>
+        <span id="admin-display-email" class="admin-email-display block text-white truncate font-mono">تحميل...</span>
+      </div>
+
+      <!-- عوملات التصفح والتبويبات -->
+      <nav class="space-y-1.5 text-xs font-bold">
+        <a href="/admin/dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-gold-gradient text-slate-950 shadow-gold">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          <span>الإحصائيات والملخص</span>
+        </a>
+        <a href="/admin/orders.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span>إدارة طلبات الزبائن (مباشر)</span>
+        </a>
+        <a href="/admin/products.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <span>إدارة منيو المنتجات</span>
+        </a>
+        <a href="/admin/subscriptions.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m-2 4a2 2 0 012 2m-2-4a2 2 0 11-4 0M7 21h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>إدارة رموز الاشتراك</span>
+        </a>
+        <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-amber-400 transition duration-350">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span>معاينة الواجهة العامة</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- زر تسجيل الخروج الفعال والمبرمج -->
+    <div class="pt-5 md:pt-0 mt-5 md:mt-0 border-t border-slate-850 md:border-0">
+      <button id="admin-logout-btn" class="w-full py-2.5 bg-slate-900 hover:bg-red-500/10 text-slate-400 hover:text-red-400 rounded-xl font-bold text-xs border border-slate-850 hover:border-red-500/20 transition-all cursor-pointer flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+        <span>تسجيل الخروج</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- محتوى لوحة الإحصائيات (Dashboard Container) -->
+  <main id="admin-stats-container" class="flex-grow p-4 md:p-8 flex flex-col gap-8 overflow-y-auto max-w-5xl">
+    
+    <div class="text-right">
+      <span class="text-xs text-amber-500 font-bold">ملخص مؤشرات اليوم</span>
+      <h1 class="text-2xl font-black text-gold-gradient mt-1">لوحة المؤشرات والإحصائيات</h1>
+      <p class="text-slate-400 text-xs mt-1">تتبع التدفق العام وأرقام المبيعات المسجلة وملخص حركة الطلبات النشطة بشكل مباشر.</p>
+    </div>
+
+    <!-- أربع بطاقات إحصائيات سريعة للتحليل -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- إجمالي المبيعات -->
+      <div class="glass-panel p-4 rounded-2xl border border-slate-850/80 bg-slate-900/10 text-right">
+        <span class="text-[10px] text-slate-500 font-bold block">إجمالي أرقام المبيعات</span>
+        <span id="dash-total-revenue" class="text-lg font-black text-gold-gradient font-mono block mt-1.5">0 ل.س</span>
+        <span class="text-[9px] text-emerald-400 font-bold block mt-1">تم التوصيل بنجاح</span>
+      </div>
+
+      <!-- إجمالي الطلبات -->
+      <div class="glass-panel p-4 rounded-2xl border border-slate-850/80 bg-slate-900/10 text-right">
+        <span class="text-[10px] text-slate-500 font-bold block">إجمالي عدد الطلبات</span>
+        <span id="dash-total-orders" class="text-lg font-black text-white font-mono block mt-1.5">0 طلب</span>
+        <span class="text-[9px] text-indigo-400 font-bold block mt-1">من الزبائن والموقع</span>
+      </div>
+
+      <!-- الطلبات الحالية النشطة -->
+      <div class="glass-panel p-4 rounded-2xl border border-slate-850/80 bg-slate-900/10 text-right">
+        <span class="text-[10px] text-slate-500 font-bold block">الطلبات النشطة (جديد/تحضير)</span>
+        <span id="dash-active-orders" class="text-lg font-black text-amber-400 font-mono block mt-1.5">0 طلب</span>
+        <span class="text-[9px] text-amber-500 font-bold block mt-1 animate-pulse">جاري المتابعة فورياً</span>
+      </div>
+
+      <!-- عدد المنتجات بالمنيو -->
+      <div class="glass-panel p-4 rounded-2xl border border-slate-850/80 bg-slate-900/10 text-right">
+        <span class="text-[10px] text-slate-500 font-bold block">أصناف المنيو الفعالة</span>
+        <span id="dash-total-menu" class="text-lg font-black text-white font-mono block mt-1.5">0 صنف</span>
+        <span class="text-[9px] text-slate-400 block mt-1 font-semibold">قهوة وحلويات ومشروبات</span>
+      </div>
+
+    </section>
+
+    <!-- جدول ملخص الطلبات النشطة الأخيرة -->
+    <section class="glass-panel p-5 rounded-2xl border border-slate-850 text-right">
+      <h3 class="text-sm font-bold text-white mb-4 pb-2 border-b border-slate-850">آخر 5 طلبات نشطة مسجلة</h3>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs font-semibold text-slate-400">
+          <thead>
+            <tr class="text-[10px] text-slate-500 uppercase border-b border-slate-850">
+              <th class="pb-3 text-right">رقم الطلب</th>
+              <th class="pb-3 text-right">اسم الزبون</th>
+              <th class="pb-3 text-center">رقم الهاتف</th>
+              <th class="pb-3 text-center">الحساب الكلي</th>
+              <th class="pb-3 text-center">الحالة الحالية</th>
+            </tr>
+          </thead>
+          <tbody id="dashboard-recent-orders-table">
+            <tr>
+              <td colspan="5" class="py-8 text-center text-slate-500">جاري مسح ومعاينة أحدث الطلبات المستلمة...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- إعدادات بوابة الدفع شام كاش (المطلوبة بشكل آمن ومباشر) -->
+    <section class="glass-panel p-5 rounded-2xl border border-slate-850 text-right">
+      <div class="flex items-center gap-3.5 mb-4 pb-2 border-b border-slate-850">
+        <!-- شعار شام كاش كأشكال هندسية دقيقة -->
+        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-1">
+          <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+            <!-- شكل الشعار المرفق بالصورة: زوج من الأشرطة المنحنية المتقابلة لتشكل شكل حرف S العصري -->
+            <path d="M75 15 H35 L15 35 V45 H55 L75 25 V15 Z" fill="url(#sc-blue-grad)" />
+            <path d="M25 85 H65 L85 65 V55 H45 L25 75 V85 Z" fill="url(#sc-teal-grad)" />
+            <defs>
+              <linearGradient id="sc-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4F46E5" />
+                <stop offset="100%" stop-color="#2563EB" />
+              </linearGradient>
+              <linearGradient id="sc-teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0D9488" />
+                <stop offset="100%" stop-color="#14B8A6" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">إعدادات بوابة الدفع شام كاش (آمن بالكامل)</h3>
+          <p class="text-[10px] text-slate-400 -mt-0.5">قم بتحديث معلومات الحساب للتاجر ومفتاح المعاملات السري الآمن بالكامل.</p>
+        </div>
+      </div>
+
+      <form id="admin-shamcash-config-form" class="space-y-4 text-xs font-Cairo max-w-xl">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div class="flex-1 w-full text-right">
+            <label class="block text-slate-400 font-bold mb-1.5" for="sc-account-id-input">رقم حساب بوابة شام كاش (التاجر):</label>
+            <input type="text" id="sc-account-id-input" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:border-amber-500 focus:ring-1 focus:ring-amber-500/20 focus:outline-none transition font-semibold" placeholder="مثال: 973842" required>
+          </div>
+          <div class="md:w-56 w-full flex items-center gap-2 bg-slate-950/80 border border-slate-800/60 px-3 py-2.5 rounded-xl">
+            <div class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-slate-400 font-bold block">مفتاح الوصول السري</span>
+              <span class="text-[9px] text-emerald-400 font-black">🔒 محمي ومخزن سحابياً</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center pt-3 border-t border-slate-900 border-dashed">
+          <p class="text-[10px] text-slate-500 font-bold">⚠️ طبقاً للتعليمات الأمنية، يتم تجميد وتخزين مفتاح التوكن السري في ملف بيئة الخادم الآمن بالكامل لمنع أي محاولة تعديل أو كشف.</p>
+          <button type="submit" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-450 hover:scale-[1.01] active:scale-95 text-slate-950 font-black rounded-xl transition-all cursor-pointer shadow-md select-none shrink-0">
+            حفظ الحساب التاجر
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- إدارة الحسابات الفرعية والمشرفين (فقط للمدير العام ذو الصلاحية الكاملة) -->
+    <section id="admin-subaccounts-section" class="glass-panel p-5 rounded-2xl border border-slate-850 text-right hidden">
+      <div class="flex items-center gap-3.5 mb-4 pb-2 border-b border-slate-850">
+        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-850 flex items-center justify-center p-1 text-amber-500">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">إيجاد وإدارة حسابات الموظفين (صلاحيات مخصصة)</h3>
+          <p class="text-[10px] text-slate-400 -mt-0.5">أنشئ حسابات إضافية للموظفين وحدد صلاحيات كل منهم (إدارة الطلبات والمبيعات، أو إدارة المنتجات والمنشورات فقط).</p>
+        </div>
+      </div>
+
+      <form id="create-subaccount-form" class="space-y-4 text-xs font-Cairo mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-slate-400 font-bold mb-1.5" for="sub-name">اسم الموظف كلياً:</label>
+            <input type="text" id="sub-name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:border-amber-500 focus:outline-none transition font-semibold" placeholder="مثلاً: يوسف المبيعات" required>
+          </div>
+          <div>
+            <label class="block text-slate-400 font-bold mb-1.5" for="sub-email">البريد الإلكتروني للدخول:</label>
+            <input type="email" id="sub-email" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:border-amber-500 focus:outline-none transition text-left font-semibold" placeholder="orders@cafe.com" required>
+          </div>
+          <div>
+            <label class="block text-slate-400 font-bold mb-1.5" for="sub-pass">كلمة المرور السرية:</label>
+            <input type="password" id="sub-pass" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:border-amber-500 focus:outline-none transition text-left" placeholder="أدخل باسورود الموظف" required>
+          </div>
+          <div>
+            <label class="block text-slate-400 font-bold mb-1.5" for="sub-role">الصلاحية والوظيفة المحددة:</label>
+            <select id="sub-role" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-300 text-xs focus:border-amber-500 focus:outline-none transition" required>
+              <option value="orders">إدارة الطلبات والمبيعات فقط (Orders Only)</option>
+              <option value="products">إدارة المنتجات والرموز الترويجية فقط (Products & Posts)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-3 border-t border-slate-900 border-dashed">
+          <button type="submit" class="px-5 py-2.5 bg-gold-gradient text-slate-950 font-black rounded-lg transition-all shadow-md select-none shrink-0 cursor-pointer">
+            إنشاء حساب وحفظه
+          </button>
+        </div>
+      </form>
+
+      <!-- قائمة الموظفين المسجلين حالياً مبرمجة تفاعلياً -->
+      <div class="mt-4 border-t border-slate-850 pt-4">
+        <h4 class="text-xs font-bold text-slate-400 mb-2">الحسابات والرواد النشطة حالياً لوحة الإدارة</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs font-semibold text-slate-400 text-right">
+            <thead>
+              <tr class="text-[10px] text-slate-500 border-b border-slate-850">
+                <th class="pb-2 text-right">اسم الموظف</th>
+                <th class="pb-2 text-right">البريد الإلكتروني</th>
+                <th class="pb-2 text-center">كلمة المرور</th>
+                <th class="pb-2 text-center">الصلاحية المفوضة</th>
+                <th class="pb-2 text-left">الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="subaccounts-table-body">
+              <tr>
+                <td colspan="5" class="py-4 text-center text-slate-500">جاري مسح الحسابات والتحقق من الموظفين المسجلة...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- الروابط البرمجية الفعالة (ES6 Modules) -->
+  <script type="module" src="/assets/js/firebase.js"></script>
+  <script type="module" src="/assets/js/auth.js"></script>
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

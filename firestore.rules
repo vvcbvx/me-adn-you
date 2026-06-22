@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Menu rules: Everyone can read and write (for automatic seeding and management)
+    match /menu/{itemId} {
+      allow read, write: if true;
+    }
+
+    // Orders rules: Everyone can create, read, and update orders
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+
+    // Subscriptions rules: Everyone can read and write subscriptions
+    match /subscriptions/{subId} {
+      allow read, write: if true;
+    }
+
+    // Admin accounts rules: Support authentication queries and staff management
+    match /admin_accounts/{accountId} {
+      allow read, write: if true;
+    }
+
+    // Settings rules: Everyone can read and write settings
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+  }
+}
